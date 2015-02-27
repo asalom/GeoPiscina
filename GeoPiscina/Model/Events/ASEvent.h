@@ -10,9 +10,9 @@
 @class ASGeoFence;
 
 @interface ASEvent : CKCalendarEvent
-@property (nonatomic, readonly) NSInteger databaseId;
+@property (nonatomic, readwrite) NSInteger databaseId;
 @property (nonatomic, readonly, copy) NSDate *entryDate;
-@property (nonatomic, readonly, copy) NSDate *exitDate;
+@property (nonatomic, readwrite, copy) NSDate *exitDate;
 @property (nonatomic, readonly, strong) ASGeoFence *geoFence;
 @property (nonatomic, readonly, getter=isValid) BOOL valid;
 

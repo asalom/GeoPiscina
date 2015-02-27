@@ -5,8 +5,11 @@
   Created by Alexandre Salom Fernandez on 27/2/15.
   Copyright (c) 2015 Alex Salom © alexsalom.es. All rights reserved.
 */
-"YES" = "YES";
+"ADD" = "ADD";
+"REMOVE" = "REMOVE";
 "NO" = "No";
 "SURE" = "Sure?";
 "DELETE_ALERT_MESSAGE" = "Remove the entry";
 "ADD_ALERT_MESSAGE" = "Add a new entry";
+"ARRIVAL_ALERT" = "Welcome to the swimming pool! It's";
+"LEAVING_ALERT" = "Bye! You were swimming for";

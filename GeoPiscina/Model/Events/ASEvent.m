@@ -11,9 +11,7 @@
 #import "NSDate+Components.h"
 
 @interface ASEvent ()
-@property (nonatomic, readwrite) NSInteger databaseId;
 @property (nonatomic, readwrite, copy) NSDate *entryDate;
-@property (nonatomic, readwrite, copy) NSDate *exitDate;
 @property (nonatomic, readwrite, strong) ASGeoFence *geoFence;
 @end
 

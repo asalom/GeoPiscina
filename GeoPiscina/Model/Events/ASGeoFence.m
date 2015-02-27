@@ -13,7 +13,6 @@
 #import "ASEvent.h"
 
 @interface ASGeoFence ()
-@property (nonatomic, readwrite) NSInteger databaseId;
 @property (nonatomic, readwrite, copy) NSString *name;
 @property (nonatomic, readwrite) double latitude;
 @property (nonatomic, readwrite) double longitude;
@@ -46,6 +45,10 @@
 
 - (void)addEvent:(ASEvent *)event {
     [[ASCoordinator sharedInstance].eventManager addEvent:event];
+}
+
+- (void)addExitForEvent:(ASEvent *)event exit:(NSDate *)date {
+    [[ASCoordinator sharedInstance].eventManager addExitForEvent:event exit:date];
 }
 
 - (void)deleteEvent:(ASEvent *)event {

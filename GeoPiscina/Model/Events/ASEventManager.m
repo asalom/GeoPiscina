@@ -38,6 +38,22 @@ NSString * const EVENT_COLUMN_GEOFENCE = @"geofence";
     if (![[ASDatabaseManager sharedInstance] executeUpdate:query]) {
         NSAssert(false, @"Error while inserting %@", event);
     }
+    
+    //event.databaseId = [[ASDatabaseManager sharedInstance] lastInsertedRowId];
+}
+
+- (void)addExitForEvent:(ASEvent *)event exit:(NSDate *)date {
+    if ([self eventExists:event]) {
+        NSMutableString *query = [NSMutableString new];
+        [query appendFormat:@"UPDATE %@ ", EVENT_TABLE_NAME];
+        [query appendFormat:@"SET %@ = %f ", EVENT_COLUMN_EXIT_TIMESTAMP, date.timeIntervalSince1970];
+        [query appendFormat:@"WHERE %@ = %li;", EVENT_COLUMN_ID, event.databaseId];
+        if (![[ASDatabaseManager sharedInstance] executeUpdate:query]) {
+            NSAssert(false, @"Error while adding exit date to %@", event);
+        }
+        
+        //event.exitDate = date;
+    }
 }
 
 - (void)deleteEvent:(ASEvent *)event {

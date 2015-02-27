@@ -19,6 +19,7 @@ extern NSString * const EVENT_COLUMN_GEOFENCE;
 @interface ASEventManager : NSObject
 
 - (void)addEvent:(ASEvent *)event;
+- (void)addExitForEvent:(ASEvent *)event exit:(NSDate *)date;
 - (void)deleteEvent:(ASEvent *)event;
 - (BOOL)eventExists:(ASEvent *)event;
 

@@ -43,6 +43,7 @@ static NSString * const SQLITE_FILENAME = @"geofences.sqlite";
         }
         
         else {
+            NSLog(@"Opening database at %@", path);
             [self.database open];
         }
 
@@ -97,6 +98,10 @@ static NSString * const SQLITE_FILENAME = @"geofences.sqlite";
     
     NSLog(@"%@", query);
     [self.database executeUpdate:query];
+}
+
+- (NSInteger)lastInsertedRowId {
+    return self.database.lastInsertRowId;
 }
 
 - (FMResultSet *)executeQuery:(NSString *)query {

@@ -13,6 +13,7 @@
 
 + (instancetype)sharedInstance;
 
+- (NSInteger)lastInsertedRowId;
 - (FMResultSet *)executeQuery:(NSString *)query;
 - (BOOL)executeUpdate:(NSString *)query;
 

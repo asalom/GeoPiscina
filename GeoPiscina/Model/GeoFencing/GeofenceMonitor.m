@@ -8,6 +8,12 @@
 
 #import "GeofenceMonitor.h"
 
+#import "ASEventManager.h"
+#import "ASGeoFenceManager.h"
+#import "ASCoordinator.h"
+#import "ASGeoFence.h"
+#import "ASEvent.h"
+
 @implementation GeofenceMonitor
 @synthesize locationManager;
 +(GeofenceMonitor *) sharedObj
@@ -173,22 +179,60 @@
 {
     NSLog(@"Started monitoring %@ region", region.identifier);
 }
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
-{
-    NSString *alert = [NSString stringWithFormat:@"##Entered Region - %@", region.identifier];
-    NSLog(@"%@", alert);
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = alert;
-    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+
+
+/*
+ "ARRIVAL_ALERT" = "Welcome to the swimming pool! It's";
+ "LEAVING_ALERT" = "Bye! You were swimming for";
+ */
+
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    NSDate *now = [NSDate new];
+    ASGeoFence *geoFence = [ASCoordinator sharedInstance].geoFenceManager.activeGeoFence;
+    ASEvent *event = [[ASEvent alloc] initWithEntryDate:now
+                                               geoFence:geoFence];
+    if ([geoFence eventsForDate:now].count == 0) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"HH:mm"];
+        [[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence addEvent:event];
+        //NSString *alert = [NSString stringWithFormat:@"##Entered Region - %@", region.identifier];
+        NSString *alert = [NSString stringWithFormat:@"%@ %@", Localized(@"ARRIVAL_ALERT"), [formatter stringFromDate:now]];
+        NSLog(@"%@", alert);
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = alert;
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    }
 }
 
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
-{
-    NSString *alert = [NSString stringWithFormat:@"##Exited Region - %@", region.identifier];
-    NSLog(@"%@", alert);
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = alert;
-    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    ASGeoFence *geoFence = [ASCoordinator sharedInstance].geoFenceManager.activeGeoFence;
+    NSDate *now = [NSDate new];
+    ASEvent *event = [[ASEvent alloc] initWithEntryDate:now
+                                               geoFence:geoFence];
+    NSArray *events = [geoFence eventsForDate:now];
+    //if (events.count > 0 && event.exitDate == nil) {
+    if (events.count > 0) {
+        event = events[0];
+        
+        if (event.exitDate == nil) {
+            //NSString *alert = [NSString stringWithFormat:@"##Exited Region - %@", region.identifier];
+            [geoFence addExitForEvent:event exit:now];
+            NSDateFormatter *df = [[NSDateFormatter alloc] init];
+            [df setDateFormat:@"HH:mm"];
+            NSTimeInterval interval = [now timeIntervalSinceDate:event.entryDate];
+            int hours = (int)interval / 3600;             // integer division to get the hours part
+            int minutes = (interval - (hours*3600)) / 60; // interval minus hours part (in seconds) divided by 60 yields minutes
+            NSString *timeDiff = [NSString stringWithFormat:@"%d:%02d", hours, minutes];
+            NSString *alert = [NSString stringWithFormat:@"%@ %@", Localized(@"LEAVING_ALERT"), timeDiff];
+
+            NSLog(@"%@", alert);
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = alert;
+            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        }
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation

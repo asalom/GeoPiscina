@@ -12,7 +12,7 @@
 
 @interface ASGeoFence : NSObject
 
-@property (nonatomic, readonly) NSInteger databaseId;
+@property (nonatomic, readwrite) NSInteger databaseId;
 @property (nonatomic, readonly, copy) NSString *name;
 @property (nonatomic, readonly) double latitude;
 @property (nonatomic, readonly) double longitude;
@@ -30,6 +30,7 @@
 
 - (NSArray *)eventsForDate:(NSDate *)date;
 - (void)addEvent:(ASEvent *)event;
+- (void)addExitForEvent:(ASEvent *)event exit:(NSDate *)date;
 - (void)deleteEvent:(ASEvent *)event;
 
 @end

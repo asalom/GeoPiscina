@@ -75,42 +75,35 @@
 
 }
 
-/*
- "SURE" = "Sure?";
- "DELETE_ALERT_MESSAGE" = "Remove the entry";
- "ADD_ALERT_MESSAGE" = "Add a new entry";
- */
-
 #pragma mark - CKCalendarViewDelegate
 - (void)calendarView:(CKCalendarView *)calendarView didSelectDate:(NSDate *)date {
     NSArray *eventsForDate = [[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence eventsForDate:date];
+    UIAlertView *alertView = nil;
     if (eventsForDate.count > 0) {
-        UIAlertView *alertView = [UIAlertView bk_alertViewWithTitle:Localized(@"DELETE_ALERT_MESSAGE") message:nil];
-        [alertView bk_addButtonWithTitle:Localized(@"NO") handler:NULL];
-        [alertView bk_addButtonWithTitle:Localized(@"YES") handler:^{
+        alertView = [UIAlertView bk_alertViewWithTitle:Localized(@"DELETE_ALERT_MESSAGE") message:nil];
+        
+        [alertView bk_addButtonWithTitle:Localized(@"REMOVE") handler:^{
             [[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence deleteEvent:eventsForDate[0]];
             [calendarView reload];
         }];
-        [alertView show];
     }
     
     else {
-        UIAlertView *alertView = [UIAlertView bk_alertViewWithTitle:Localized(@"ADD_ALERT_MESSAGE") message:nil];
-        [alertView bk_addButtonWithTitle:Localized(@"NO") handler:NULL];
-        [alertView bk_addButtonWithTitle:Localized(@"YES") handler:^{
+        alertView = [UIAlertView bk_alertViewWithTitle:Localized(@"ADD_ALERT_MESSAGE") message:nil];
+        [alertView bk_addButtonWithTitle:Localized(@"ADD") handler:^{
             ASEvent *event = [[ASEvent alloc] initWithEntryDate:date
                                                        geoFence:[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence];
             [[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence addEvent:event];
             [calendarView reload];
         }];
-        [alertView show];
     }
+    [alertView bk_setCancelButtonWithTitle:Localized(@"NO") handler:NULL];
+    [alertView show];
 }
 
 #pragma mark - CKCalendarViewDataSource
 - (NSArray *)calendarView:(CKCalendarView *)calendarView eventsForDate:(NSDate *)date {
     return [[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence eventsForDate:date];
-    //return [self data][date];
 }
 
 @end

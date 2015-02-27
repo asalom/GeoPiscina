@@ -5,8 +5,12 @@
   Created by Alexandre Salom Fernandez on 27/2/15.
   Copyright (c) 2015 Alex Salom © alexsalom.es. All rights reserved.
 */
-"YES" = "Sí";
-"NO" = "No";
+"ADD" = "AÑADIR";
+"REMOVE" = "ELIMINAR";
 "SURE" = "¿Seguro?";
 "DELETE_ALERT_MESSAGE" = "Eliminar entrada";
 "ADD_ALERT_MESSAGE" = "Añadir nueva entrada";
+"ARRIVAL_ALERT" = "You arrived to the swimming pool at";
+"LEAVING_ALERT" = "You were at the swimming pool for";
+"ARRIVAL_ALERT" = "¡Bienvenido a la piscina! son las";
+"LEAVING_ALERT" = "¡Adiós! Has nadado";

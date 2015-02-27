@@ -1,0 +1,20 @@
+PODS:
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
+  - MBCalendarKit (3.0.4)
+  - SWRevealViewController (2.3.0)
+
+DEPENDENCIES:
+  - FMDB (~> 2.5)
+  - MBCalendarKit (~> 3.0)
+  - SWRevealViewController (~> 2.3)
+
+SPEC CHECKSUMS:
+  FMDB: 0efa188cf0dd1ce82c27a478cd5f5fa245308677
+  MBCalendarKit: 331c80640b862ec9361b51477a8648cb3094c8f1
+  SWRevealViewController: f6d80638b8e12323e87ac79562345403a799cb77
+
+COCOAPODS: 0.35.0

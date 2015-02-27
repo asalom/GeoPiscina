@@ -28,7 +28,6 @@
         [GeofenceMonitor sharedObj];
     }
     
-    
     return YES;
 }
 

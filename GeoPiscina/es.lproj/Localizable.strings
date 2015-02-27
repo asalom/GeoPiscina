@@ -5,8 +5,8 @@
   Created by Alexandre Salom Fernandez on 27/2/15.
   Copyright (c) 2015 Alex Salom © alexsalom.es. All rights reserved.
 */
-"YES" = "YES";
+"YES" = "Sí";
 "NO" = "No";
-"SURE" = "Sure?";
-"DELETE_ALERT_MESSAGE" = "Remove the entry";
-"ADD_ALERT_MESSAGE" = "Add a new entry";
+"SURE" = "¿Seguro?";
+"DELETE_ALERT_MESSAGE" = "Eliminar entrada";
+"ADD_ALERT_MESSAGE" = "Añadir nueva entrada";

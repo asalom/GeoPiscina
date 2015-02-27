@@ -1,0 +1,13 @@
+//
+//  GeoPiscina-Prefix.pch
+//  GeoPiscina
+//
+//  Created by Alexandre Salom Fernandez on 27/2/15.
+//  Copyright (c) 2015 Alex Salom © alexsalom.es. All rights reserved.
+//
+
+#define Localized(key) \
+[[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
+
+#define LocalizedC(key, comment) \
+[[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]

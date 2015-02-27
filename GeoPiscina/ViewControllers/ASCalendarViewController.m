@@ -14,6 +14,7 @@
 #import "ASCoordinator.h"
 #import "ASGeoFence.h"
 #import "ASEvent.h"
+#import <BlocksKit/UIAlertView+BlocksKit.h>
 
 @interface ASCalendarViewController ()
 @property (weak, nonatomic) IBOutlet UIView *calendarContainerView;
@@ -74,23 +75,36 @@
 
 }
 
+/*
+ "SURE" = "Sure?";
+ "DELETE_ALERT_MESSAGE" = "Remove the entry";
+ "ADD_ALERT_MESSAGE" = "Add a new entry";
+ */
+
 #pragma mark - CKCalendarViewDelegate
 - (void)calendarView:(CKCalendarView *)calendarView didSelectDate:(NSDate *)date {
     NSArray *eventsForDate = [[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence eventsForDate:date];
     if (eventsForDate.count > 0) {
-        [[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence deleteEvent:eventsForDate[0]];
+        UIAlertView *alertView = [UIAlertView bk_alertViewWithTitle:Localized(@"DELETE_ALERT_MESSAGE") message:nil];
+        [alertView bk_addButtonWithTitle:Localized(@"NO") handler:NULL];
+        [alertView bk_addButtonWithTitle:Localized(@"YES") handler:^{
+            [[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence deleteEvent:eventsForDate[0]];
+            [calendarView reload];
+        }];
+        [alertView show];
     }
     
     else {
-        ASEvent *event = [[ASEvent alloc] initWithEntryDate:date
-                                                   geoFence:[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence];
-        [[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence addEvent:event];
-//        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
-//        NSDate *date = [NSDate dateWithDay:components.day month:components.month year:components.year];
-//        CKCalendarEvent *event = [CKCalendarEvent eventWithTitle:@"Piscina" andDate:date andInfo:nil];
-//        self.data[date] = @[event];
+        UIAlertView *alertView = [UIAlertView bk_alertViewWithTitle:Localized(@"ADD_ALERT_MESSAGE") message:nil];
+        [alertView bk_addButtonWithTitle:Localized(@"NO") handler:NULL];
+        [alertView bk_addButtonWithTitle:Localized(@"YES") handler:^{
+            ASEvent *event = [[ASEvent alloc] initWithEntryDate:date
+                                                       geoFence:[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence];
+            [[ASCoordinator sharedInstance].geoFenceManager.activeGeoFence addEvent:event];
+            [calendarView reload];
+        }];
+        [alertView show];
     }
-    [calendarView reload];
 }
 
 #pragma mark - CKCalendarViewDataSource

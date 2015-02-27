@@ -202,6 +202,7 @@
         NSLog(@"%@", alert);
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         notification.alertBody = alert;
+        notification.soundName = UILocalNotificationDefaultSoundName;
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
 }
@@ -230,6 +231,7 @@
             NSLog(@"%@", alert);
             UILocalNotification *notification = [[UILocalNotification alloc] init];
             notification.alertBody = alert;
+            notification.soundName = UILocalNotificationDefaultSoundName;
             [[UIApplication sharedApplication] scheduleLocalNotification:notification];
         }
     }

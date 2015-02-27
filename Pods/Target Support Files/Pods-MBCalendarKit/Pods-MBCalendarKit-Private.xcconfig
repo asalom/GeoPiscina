@@ -1,5 +1,5 @@
 #include "Pods-MBCalendarKit.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/MBCalendarKit" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/MBCalendarKit" "${PODS_ROOT}/Headers/Public/SWRevealViewController"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/MBCalendarKit" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/BlocksKit" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/MBCalendarKit" "${PODS_ROOT}/Headers/Public/SWRevealViewController"
 OTHER_LDFLAGS = ${PODS_MBCALENDARKIT_OTHER_LDFLAGS} -ObjC
 PODS_ROOT = ${SRCROOT}

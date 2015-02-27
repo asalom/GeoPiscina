@@ -14,10 +14,7 @@
 		3F5943271A95E1CE001C6452 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F5943261A95E1CE001C6452 /* Images.xcassets */; };
 		3F59432A1A95E1CE001C6452 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5943281A95E1CE001C6452 /* LaunchScreen.xib */; };
 		3F5943361A95E1CE001C6452 /* GeoPiscinaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5943351A95E1CE001C6452 /* GeoPiscinaTests.m */; };
-		3F5943401A95FDB5001C6452 /* libPods-MBCalendarKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F59433F1A95FDB5001C6452 /* libPods-MBCalendarKit.a */; };
-		3F5943421A960040001C6452 /* libPods-SWRevealViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5943411A960040001C6452 /* libPods-SWRevealViewController.a */; };
 		3F59434C1A960A24001C6452 /* ASCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F59434B1A960A24001C6452 /* ASCalendarViewController.m */; };
-		3F5943AD1A9635D5001C6452 /* libPods-FMDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5943AC1A9635D5001C6452 /* libPods-FMDB.a */; };
 		3F5943B91A963E26001C6452 /* GeofenceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5943B81A963E26001C6452 /* GeofenceMonitor.m */; };
 		3F5943BB1A9641FC001C6452 /* Piscina.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 3F5943BA1A9641FC001C6452 /* Piscina.gpx */; };
 		3FF481CA1A9772E1007918C8 /* ASEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF481C91A9772E1007918C8 /* ASEvent.m */; };
@@ -51,11 +48,8 @@
 		3F59432F1A95E1CE001C6452 /* GeoPiscinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoPiscinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5943341A95E1CE001C6452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F5943351A95E1CE001C6452 /* GeoPiscinaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeoPiscinaTests.m; sourceTree = "<group>"; };
-		3F59433F1A95FDB5001C6452 /* libPods-MBCalendarKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBCalendarKit.a"; path = "Pods/build/Debug-iphoneos/libPods-MBCalendarKit.a"; sourceTree = "<group>"; };
-		3F5943411A960040001C6452 /* libPods-SWRevealViewController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SWRevealViewController.a"; path = "Pods/build/Debug-iphoneos/libPods-SWRevealViewController.a"; sourceTree = "<group>"; };
 		3F59434A1A960A24001C6452 /* ASCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCalendarViewController.h; sourceTree = "<group>"; };
 		3F59434B1A960A24001C6452 /* ASCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCalendarViewController.m; sourceTree = "<group>"; };
-		3F5943AC1A9635D5001C6452 /* libPods-FMDB.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FMDB.a"; path = "Pods/build/Debug-iphoneos/libPods-FMDB.a"; sourceTree = "<group>"; };
 		3F5943B71A963E26001C6452 /* GeofenceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeofenceMonitor.h; sourceTree = "<group>"; };
 		3F5943B81A963E26001C6452 /* GeofenceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeofenceMonitor.m; sourceTree = "<group>"; };
 		3F5943BA1A9641FC001C6452 /* Piscina.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Piscina.gpx; sourceTree = "<group>"; };
@@ -74,7 +68,6 @@
 		4A4C8D23B6C5069349539A11 /* Pods-GeoPiscina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoPiscina.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoPiscina/Pods-GeoPiscina.release.xcconfig"; sourceTree = "<group>"; };
 		52BD8BBE01C2D726BC1C8E65 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E68CC10828BFF864141296 /* Pods-GeoPiscina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoPiscina.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoPiscina/Pods-GeoPiscina.debug.xcconfig"; sourceTree = "<group>"; };
-		F5F5DEA2CF0E3C9696AD63B4 /* libPods-GeoPiscina.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeoPiscina.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB72E5A412859DF186714347 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,9 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F5943AD1A9635D5001C6452 /* libPods-FMDB.a in Frameworks */,
-				3F5943421A960040001C6452 /* libPods-SWRevealViewController.a in Frameworks */,
-				3F5943401A95FDB5001C6452 /* libPods-MBCalendarKit.a in Frameworks */,
 				25A021B0558AA8331065D66E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,10 +93,6 @@
 		234EDE37406E4A7ABDD7027D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3F5943AC1A9635D5001C6452 /* libPods-FMDB.a */,
-				3F5943411A960040001C6452 /* libPods-SWRevealViewController.a */,
-				3F59433F1A95FDB5001C6452 /* libPods-MBCalendarKit.a */,
-				F5F5DEA2CF0E3C9696AD63B4 /* libPods-GeoPiscina.a */,
 				52BD8BBE01C2D726BC1C8E65 /* libPods.a */,
 			);
 			name = Frameworks;

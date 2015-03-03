@@ -210,12 +210,10 @@
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
     ASGeoFence *geoFence = [ASCoordinator sharedInstance].geoFenceManager.activeGeoFence;
     NSDate *now = [NSDate new];
-    ASEvent *event = [[ASEvent alloc] initWithEntryDate:now
-                                               geoFence:geoFence];
     NSArray *events = [geoFence eventsForDate:now];
     //if (events.count > 0 && event.exitDate == nil) {
     if (events.count > 0) {
-        event = events[0];
+        ASEvent *event = events[0];
         
         if (event.exitDate == nil) {
             //NSString *alert = [NSString stringWithFormat:@"##Exited Region - %@", region.identifier];

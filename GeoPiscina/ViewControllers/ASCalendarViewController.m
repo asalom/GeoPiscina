@@ -62,14 +62,22 @@
     GeofenceMonitor  * gfm = [GeofenceMonitor sharedObj];
     
     // 49.640228, 8.361498
-    NSMutableDictionary * fence = [NSMutableDictionary new];
-    [fence setValue:@"Piscina" forKey:@"identifier"];
-    [fence setValue:@"49.640228" forKey:@"latitude"];
-    [fence setValue:@"8.361498" forKey:@"longitude"];
-    [fence setValue:@"65" forKey:@"radius"];
+    NSMutableDictionary *princeCarl = [NSMutableDictionary new];
+    [princeCarl setValue:@"Piscina" forKey:@"identifier"];
+    [princeCarl setValue:@"49.640228" forKey:@"latitude"];
+    [princeCarl setValue:@"8.361498" forKey:@"longitude"];
+    [princeCarl setValue:@"65" forKey:@"radius"];
+    
+    // 49.610878, 8.390709
+    NSMutableDictionary *campoBaseball = [NSMutableDictionary new];
+    [campoBaseball setValue:@"Campo de baseball" forKey:@"identifier"];
+    [campoBaseball setValue:@"49.610878" forKey:@"latitude"];
+    [campoBaseball setValue:@"8.390709" forKey:@"longitude"];
+    [campoBaseball setValue:@"100" forKey:@"radius"];
     
     if([gfm checkLocationManager]) {
-        [gfm addGeofence:fence];
+        [gfm addGeofence:princeCarl];
+        [gfm addGeofence:campoBaseball];
         [gfm findCurrentFence];
     }
 

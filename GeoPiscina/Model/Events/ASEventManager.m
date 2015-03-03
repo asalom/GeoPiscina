@@ -94,8 +94,16 @@ NSString * const EVENT_COLUMN_GEOFENCE = @"geofence";
 
 - (ASEvent *)eventFromResultSet:(FMResultSet *)resultSet geoFence:(ASGeoFence *)geoFence {
     NSInteger databaseId = [resultSet intForColumn:EVENT_COLUMN_ID];
-    NSDate *entryDate = [NSDate dateWithTimeIntervalSince1970:[resultSet doubleForColumn:EVENT_COLUMN_ENTRY_TIMESTAMP]];
-    NSDate *exitDate = [NSDate dateWithTimeIntervalSince1970:[resultSet doubleForColumn:EVENT_COLUMN_EXIT_TIMESTAMP]];
+    NSDate *entryDate = nil;
+    NSDate *exitDate = nil;
+    double entryTimestamp = [resultSet doubleForColumn:EVENT_COLUMN_ENTRY_TIMESTAMP];
+    double exitTimestamp = [resultSet doubleForColumn:EVENT_COLUMN_EXIT_TIMESTAMP];
+    if (entryTimestamp > 0) {
+        entryDate = [NSDate dateWithTimeIntervalSince1970:[resultSet doubleForColumn:EVENT_COLUMN_ENTRY_TIMESTAMP]];
+    }
+    if (exitTimestamp > 0) {
+        exitDate = [NSDate dateWithTimeIntervalSince1970:[resultSet doubleForColumn:EVENT_COLUMN_EXIT_TIMESTAMP]];
+    }
     
     return [[ASEvent alloc] initWithDatabaseId:databaseId
                                      entryDate:entryDate
